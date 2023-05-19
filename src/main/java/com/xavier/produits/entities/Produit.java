@@ -12,12 +12,10 @@ public class Produit {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long inProduit;
+	private Long idProduit;
 	private String nomProduit;
 	private Double prixProduit;
 	private Date dateCreation;
-	
-	
 	
 	
 	public Produit() {
@@ -30,12 +28,15 @@ public class Produit {
 		this.prixProduit = prixProduit;
 		this.dateCreation = dateCreation;
 	}
-	public Long getInProduit() {
-		return inProduit;
+	
+	public Long getIdProduit() {
+		return idProduit;
 	}
-	public void setInProduit(Long inProduit) {
-		this.inProduit = inProduit;
+
+	public void setIdProduit(Long idProduit) {
+		this.idProduit = idProduit;
 	}
+
 	public String getNomProduit() {
 		return nomProduit;
 	}
@@ -57,7 +58,7 @@ public class Produit {
 
 	@Override
 	public String toString() {
-		return "Produit [inProduit=" + inProduit + ", nomProduit=" + nomProduit + ", prixProduit=" + prixProduit
+		return "Produit [idProduit=" + idProduit + ", nomProduit=" + nomProduit + ", prixProduit=" + prixProduit
 				+ ", dateCreation=" + dateCreation + "]";
 	}
 	

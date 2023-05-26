@@ -18,7 +18,7 @@ class ProduitsApplicationTests {
 	
 	@Test
 	public void testCreateProduit() {
-		Produit prod = new Produit("PC Dell",2200.500, new Date());
+		Produit prod = new Produit("Pack format A4",1200.500, new Date());
 		produitRepository.save(prod);
 	}
 	
@@ -33,6 +33,20 @@ class ProduitsApplicationTests {
 	public void testFindProduit() {
 		Produit p = produitRepository.findById(1L).get();
 		System.out.println(p);
+	}
+	
+	@Test
+	public void testFindByNomProduit() {
+		List<Produit> produits = produitRepository.findByNomProduit("PC Dell");
+		for(Produit p : produits)
+			System.out.println(p);
+	}
+	
+	@Test
+	public void testFindByNomProduitContains() {
+		List<Produit> produits = produitRepository.findByNomProduitContains("P");
+		for(Produit p : produits)
+			System.out.println(p);
 	}
 	
 	@Test

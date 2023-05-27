@@ -50,6 +50,13 @@ class ProduitsApplicationTests {
 	}
 	
 	@Test
+	public void testFindByNomPrix() {
+		List<Produit> produits = produitRepository.findByNomPrix("PC Dell",1000.00);
+		for(Produit p : produits)
+			System.out.println(p);
+	}
+	
+	@Test
 	public void testUpdateProduit() {
 		Produit p = produitRepository.findById(1L).get();
 		p.setPrixProduit(2000.00);

@@ -1,9 +1,9 @@
 package com.xavier.produits.entities;
 
-import java.util.Date;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -24,7 +24,7 @@ public class Categorie {
 	private String nomCat;
 	private String descriptionCat;
 	
-	@OneToMany(mappedBy = "categorie")
+	@OneToMany(mappedBy = "categorie", fetch = FetchType.LAZY)
 	private List<Produit> produits;
 	
 

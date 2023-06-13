@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.xavier.produits.repos.ProduitRepository;
+import com.xavier.produits.entities.Categorie;
 import com.xavier.produits.entities.Produit;
 
 @SpringBootTest
@@ -54,6 +55,25 @@ class ProduitsApplicationTests {
 		List<Produit> produits = produitRepository.findByNomPrix("PC Dell",1000.00);
 		for(Produit p : produits)
 			System.out.println(p);
+	}
+	
+	@Test
+	public void testFindByCategorie() {
+		Categorie cat = new Categorie();
+		cat.setIdCat(1L);
+		
+		List<Produit> produits = produitRepository.findByCategorie(cat);
+		for(Produit p : produits)
+			System.out.println(p);
+	}
+	
+	@Test
+	public void findByCategorieIdCat() {
+		
+		List<Produit> prods = produitRepository.findByCategorieIdCat(1L);
+		for (Produit p : prods) {
+			System.out.println(p);
+		}
 	}
 	
 	@Test

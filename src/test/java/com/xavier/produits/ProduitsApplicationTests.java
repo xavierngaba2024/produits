@@ -19,7 +19,7 @@ class ProduitsApplicationTests {
 	
 	@Test
 	public void testCreateProduit() {
-		Produit prod = new Produit("Pack format A4",1200.500, new Date());
+		Produit prod = new Produit("Livre Enfant",10.00, new Date());
 		produitRepository.save(prod);
 	}
 	
@@ -75,6 +75,25 @@ class ProduitsApplicationTests {
 			System.out.println(p);
 		}
 	}
+	
+	@Test
+	public void findByOrderByNomProduitAsc() {
+		
+		List<Produit> prods = produitRepository.findByOrderByNomProduitAsc();
+		for (Produit p : prods) {
+			System.out.println(p);
+		}
+	}
+	
+	@Test
+	public void trierProduitsNomsPrix() {
+		
+		List<Produit> prods = produitRepository.trierProduitsNomsPrix();
+		for (Produit p : prods) {
+			System.out.println(p);
+		}
+	}
+	
 	
 	@Test
 	public void testUpdateProduit() {

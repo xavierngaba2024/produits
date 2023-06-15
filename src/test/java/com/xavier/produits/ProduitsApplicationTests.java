@@ -19,7 +19,7 @@ class ProduitsApplicationTests {
 	
 	@Test
 	public void testCreateProduit() {
-		Produit prod = new Produit("Livre Enfant",10.00, new Date());
+		Produit prod = new Produit("HP E2568",2000.00, new Date());
 		produitRepository.save(prod);
 	}
 	

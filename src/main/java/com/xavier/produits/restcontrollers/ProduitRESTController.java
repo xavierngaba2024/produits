@@ -50,5 +50,10 @@ public class ProduitRESTController {
 	public void deleteProduit(@PathVariable("id") Long id) {
 		produitService.deleteProduitById(id);
 	}
+	
+	@GetMapping(value = "/prodscat/{idCat}")
+	public List<Produit> getProduitByCatId(@PathVariable("idCat") Long idCat) {
+		return produitService.findByCategorieIdCat(idCat);
+	}
 
 }

@@ -20,7 +20,6 @@ import com.xavier.produits.service.ProduitService;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin
 public class ProduitRESTController {
 	
 	@Autowired

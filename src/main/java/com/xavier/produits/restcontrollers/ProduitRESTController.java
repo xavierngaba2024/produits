@@ -27,27 +27,29 @@ public class ProduitRESTController {
 	@Autowired
 	ProduitService produitService;
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping
 	List<ProduitDTO> getAllProduits() {
 		return produitService.getAllProduits();
 	}
 	
-	@GetMapping(value = "/{id}")
+	@GetMapping(value="/{id}")
 	public ProduitDTO getProduitById(@PathVariable("id") Long id) {
 		return produitService.getProduit(id);
 	}
 	
-	@PostMapping("/creer")
+	@CrossOrigin(origins = "http://localhost:4200")
+	@PostMapping
 	public ResponseEntity<ProduitDTO> createProduit(@RequestBody ProduitDTO produitDTO) {
 		return ResponseEntity.ok(produitService.saveProduit(produitDTO));
 	}
 	
-	@PatchMapping("/update")
+	@PutMapping
 	public ResponseEntity<ProduitDTO> updateProduit(@RequestBody ProduitDTO produitDTO) {
 		return ResponseEntity.ok(produitService.updateProduit(produitDTO));
 	}
 	
-	@DeleteMapping(value = "/{id}")
+	@DeleteMapping(value="/{id}")
 	public void deleteProduit(@PathVariable("id") Long id) {
 		produitService.deleteProduitById(id);
 	}

@@ -22,12 +22,12 @@ import com.xavier.produits.service.ProduitService;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin
 public class ProduitRESTController {
 	
 	@Autowired
 	ProduitService produitService;
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping
 	List<ProduitDTO> getAllProduits() {
 		return produitService.getAllProduits();
@@ -38,7 +38,6 @@ public class ProduitRESTController {
 		return produitService.getProduit(id);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping
 	public ResponseEntity<ProduitDTO> createProduit(@RequestBody ProduitDTO produitDTO) {
 		return ResponseEntity.ok(produitService.saveProduit(produitDTO));
